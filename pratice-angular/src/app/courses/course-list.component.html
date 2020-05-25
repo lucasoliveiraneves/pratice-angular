@@ -1,10 +1,12 @@
 <h2>Course List</h2>
 <div class="form-group row">
-<label class="col-sn-2 col-form-label">Filter By:</label>
- <div class="col-sn-10">
-  <input [(ngModel)]=filter class="form-control">
 
- </div>
+    <label class="col-sm-2 col-form-label">Filter By:</label>
+
+    <div class="col-sm-10">
+        <input [(ngModel)]="filter" class="form-control">
+    </div>
+
 </div>
 
 <table class="table table-striped">
@@ -29,6 +31,9 @@
         <td>{{course.code | lowercase | replace: "-": " "}}</td>
             <td>{{course.releaseDate | date: 'dd/MM/yyyy' }}</td>
             <td><app-star [rating]="course.rating"></app-star></td>
+            <td>
+                <a [routerLink]="['/courses/info', course.id]" class="btn btn-primary mr-2">Edit</a>
+            </td>
         </tr>
 
     </tbody>
